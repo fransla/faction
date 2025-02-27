@@ -62,8 +62,8 @@ global.genCal = function genCal() {
 			let end = new Date(range.split(" to ")[1]);
 			start.setDate(start.getDate() + delta.asDays());
 			end.setDate(end.getDate() + delta.asDays());
-			let startStr = (start.getMonth() + 1) + "/" + start.getDate() + "/" + start.getFullYear();
-			let endStr = (end.getMonth() + 1) + "/" + end.getDate() + "/" + end.getFullYear();
+			let startStr = (start.getDate()) + "/" + (start.getMonth()+1) + "/" + start.getFullYear();
+			let endStr = (end.getDate()) + "/" + (end.getMonth()+1) + "/" + end.getFullYear();
 			$("#reservation").val(startStr + " to " + endStr);
 
 		},
@@ -71,9 +71,9 @@ global.genCal = function genCal() {
 			thedelta = event;
 			let range = $("#reservation").val();
 			let start = new Date(range.split(" to ")[0]);
-			let startStr = (start.getMonth() + 1) + "/" + start.getDate() + "/" + start.getFullYear();
+			let startStr = (start.getDate() ) + "/" + (start.getMonth()+1) + "/" + start.getFullYear();
 
-			let endStr = (event.end.month() + 1) + "/" + (event.end.date() - 1) + "/" + event.end.year();
+			let endStr = (event.end.date()-1) + "/" + (event.end.month() + 1) + "/" + event.end.year();
 			$("#reservation").val(startStr + " to " + endStr);
 		}
 
@@ -201,8 +201,8 @@ $(function() {
 			let end = new Date(range.split(" to ")[1]);
 			start.setDate(start.getDate() + delta.asDays());
 			end.setDate(end.getDate() + delta.asDays());
-			let startStr = (start.getMonth() + 1) + "/" + start.getDate() + "/" + start.getFullYear();
-			let endStr = (end.getMonth() + 1) + "/" + end.getDate() + "/" + end.getFullYear();
+			let startStr = (start.getDate() ) + "/" + (start.getMonth()+1) + "/" + start.getFullYear();
+			let endStr = (end.getDate()) + "/" + (end.getMonth()+1) + "/" + end.getFullYear();
 			$("#reservation").val(startStr + " to " + endStr);
 
 		},
@@ -210,9 +210,9 @@ $(function() {
 			thedelta = event;
 			let range = $("#reservation").val();
 			let start = new Date(range.split(" to ")[0]);
-			let startStr = (start.getMonth() + 1) + "/" + start.getDate() + "/" + start.getFullYear();
+			let startStr = (start.getDate() ) + "/" + (start.getMonth() +1)+ "/" + start.getFullYear();
 
-			let endStr = (event.end.month() + 1) + "/" + (event.end.date() - 1) + "/" + event.end.year();
+			let endStr = (event.end.date() - 1) + "/" + (event.end.month() + 1) + "/" + event.end.year();
 			$("#reservation").val(startStr + " to " + endStr);
 		}
 
@@ -330,7 +330,7 @@ $(function() {
 		start = new Date(start.setDate(start.getDate() - 30));
 		end = new Date(end.setDate(end.getDate() + 30));
 		
-		$.post('Calendar', `userid=${userid}&team=-1&start=${start.toLocaleDateString("en-US")}&end=${end.toLocaleDateString("en-US")}&action=search`).done(function(json) {
+		$.post('Calendar', `userid=${userid}&team=-1&start=${start.toLocaleDateString("en-NZ")}&end=${end.toLocaleDateString("en-NZ")}&action=search`).done(function(json) {
 			for (let verification of json.verifications) {
 				let s = verification.start;
 				let e = verification.end;

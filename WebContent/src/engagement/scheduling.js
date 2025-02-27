@@ -64,8 +64,8 @@ $(function() {
 			let end = new Date(range.split(" to ")[1]);
 			start.setDate(start.getDate() + event.delta.days);
 			end.setDate(end.getDate() + event.delta.days);
-			let startStr = (start.getMonth() + 1) + "/" + start.getDate() + "/" + start.getFullYear();
-			let endStr = (end.getMonth() + 1) + "/" + end.getDate() + "/" + end.getFullYear();
+			let startStr = (start.getDate() + 1) + "/" + start.getMonth() + "/" + start.getFullYear();
+			let endStr = (end.getDate() + 1) + "/" + end.getMonth() + "/" + end.getFullYear();
 			$("#reservation").val(startStr + " to " + endStr);
 
 		},
@@ -75,8 +75,8 @@ $(function() {
 			let end = new Date(range.split(" to ")[1]);
 			start.setDate(start.getDate() + event.startDelta.days);
 			end.setDate(end.getDate() + event.endDelta.days);
-			let startStr = (start.getMonth() + 1) + "/" + start.getDate() + "/" + start.getFullYear();
-			let endStr = (end.getMonth() + 1) + "/" + end.getDate() + "/" + end.getFullYear();
+			let startStr = (start.getDate() + 1) + "/" + start.getMonth() + "/" + start.getFullYear();
+			let endStr = (end.getDate() + 1) + "/" + end.getMonth() + "/" + end.getFullYear();
 			$("#reservation").val(startStr + " to " + endStr);
 		}
 
@@ -351,11 +351,11 @@ function confirmAndPostIt(messages, index, size) {
 						let end = new Date(endTmp);
 						end = new Date(end.setDate(end.getDate() + 1));
 
-						let eform = (end.getMonth() + 1) + "/" + (end.getDate() - 1) + "/" + end.getFullYear();
+						let eform = (end.getDate() + 1) + "/" + (end.getMonth() - 1) + "/" + end.getFullYear();
 						if ((end.getDate() - 1) == 0 && end.getMonth() == 13) {
 							eform = "1/1/" + end.getFullYear() + 1;
 						} else if ((end.getDate() - 1) == 0) {
-							eform = (end.getMonth() + 1) + "/1/" + end.getFullYear();
+							eform = "1/" + (end.getMonth() + 1) + "/" + end.getFullYear();
 						}
 						data += "&edate=" + eform;
 						if (location.pathname.indexOf("EditAssessment") != -1) {
@@ -608,7 +608,7 @@ function updateCalendar(user, userid) {
 	start = new Date(start.setDate(start.getDate() - 30));
 	end = new Date(end.setDate(end.getDate() + 30));
 	
-	$.post('Calendar', `userid=${userid}&team=-1&start=${start.toLocaleDateString("en-US")}&end=${end.toLocaleDateString("en-US")}&action=search`).done(function(json) {
+	$.post('Calendar', `userid=${userid}&team=-1&start=${start.toLocaleDateString("en-NZ")}&end=${end.toLocaleDateString("en-NZ")}&action=search`).done(function(json) {
 		for (let verification of json.verifications) {
 			let s = verification.start;
 			let e = verification.end;

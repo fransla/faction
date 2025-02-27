@@ -80,8 +80,8 @@ global._token = $("#_token")[0].value;
 				var end=new Date(range.split(" to ")[1]);
 				start.setDate(start.getDate() + event.delta.days);
 				end.setDate(end.getDate() + event.delta.days);
-				var startStr = (start.getMonth()+1) + "/" + start.getDate() + "/" + start.getFullYear();
-				var endStr = (end.getMonth()+1) + "/" + end.getDate() + "/" + end.getFullYear();
+				var startStr = (start.getDate()+1) + "/" + start.getMonth() + "/" + start.getFullYear();
+				var endStr = (end.getDate()+1) + "/" + end.getMonth() + "/" + end.getFullYear();
 				$("#ooo").val( startStr + " to " + endStr);
 				
               },
@@ -91,8 +91,8 @@ global._token = $("#_token")[0].value;
 				var end=new Date(range.split(" to ")[1]);
 				start.setDate(start.getDate() + event.startDelta.days);
 				end.setDate(end.getDate() + event.endDelta.days);
-				var startStr = (start.getMonth()+1) + "/" + start.getDate() + "/" + start.getFullYear();
-				var endStr = (end.getMonth()+1) + "/" + end.getDate() + "/" + end.getFullYear();
+				var startStr = (start.getDate()+1) + "/" + start.getMonth() + "/" + start.getFullYear();
+				var endStr = (end.getDate()+1) + "/" + end.getMonth() + "/" + end.getFullYear();
 				$("#ooo").val( startStr + " to " + endStr);
               },
               eventRender(info){
@@ -197,7 +197,7 @@ global._token = $("#_token")[0].value;
 		   let u = $("#userooo").val();
 		   let post="action=add";
 		   post+="&start="+s;
-		   post+="&end="+(e.getMonth() +1)+ "/" + e.getDate() + "/" + e.getFullYear();
+		   post+="&end="+e.getDate()+ "/" + (e.getMonth()+1) + "/" + e.getFullYear();
 		   post+="&title=" + t;
 		   post+="&userid=" + u;
 		   post+="&_token=" + _token;
