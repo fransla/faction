@@ -6,7 +6,7 @@
     
 	<constant name="struts.multipart.maxSize" value="1000000000"/>
 	<constant name="struts.i18n.reload" value="true" />
-	<constant name="struts.locale" value="en_NZ" />
+	<constant name="struts.locale" value="en_US" />
     <package name="default" namespace="/" extends="struts-default">
       <interceptors>
       	 <interceptor name="staticParams" class="com.opensymphony.xwork2.interceptor.StaticParametersInterceptor"/>
