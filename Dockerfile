@@ -1,4 +1,5 @@
 from tomcat:9-jre11 as base_app
+
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install curl
@@ -15,7 +16,7 @@ RUN rm -rf /usr/local/tomcat/webapps/docs
 RUN rm -rf /usr/local/tomcat/webapps/examples
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
-RUN wget https://github.com/factionsecurity/faction/releases/latest/download/faction.war -O /usr/local/tomcat/webapps/ROOT.war
+RUN wget https://github.com/fransla/faction/releases/latest/download/faction.war -O /usr/local/tomcat/webapps/ROOT.war
 
 #COPY ./target/faction.war /usr/local/tomcat/webapps/ROOT.war
 EXPOSE 8080/tcp

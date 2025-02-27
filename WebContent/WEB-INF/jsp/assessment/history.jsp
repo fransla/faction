@@ -12,7 +12,7 @@
 					<bs:datatable columns="Opened, Vuln, Severity, Assessor, Report" classname="primary" id="history">
 						<s:iterator value="history">
 							<tr><td>
-									<s:date name="opened" format="dd/MM/yyyy"/>
+									<s:date name="opened" format="MM/dd/yyyy"/>
 								</td>
 								<td>
 									<s:property value="vuln"/>

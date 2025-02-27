@@ -84,7 +84,7 @@ margin-top: 20px;
 				<tr><td>	<b>Assessment Id:</b></td><td> <s:property value="appId"/></td></tr>
 				<tr><td>	<b>Assessment Name:</b></td><td> <s:property value="appName"/></td></tr>
 				<tr><td>	<b>Tracking:</b></td><td> <s:property value="vuln.tracking"/></td></tr>
-				<tr><td>	<b>Opened:</b></td><td> <span id="opened"><s:date name="vuln.opened" format="dd/MM/yyyy"/></span></td></tr>
+				<tr><td>	<b>Opened:</b></td><td> <span id="opened"><s:date name="vuln.opened" format="MM/dd/yyyy"/></span></td></tr>
 				<tr><td>	<b>Severity:</b> </td><td><s:property value="vuln.getOverallStr()"/></td></tr>
 				<tr><td>	<b>Status: </b></td><td> <s:property value="badges" escapeHtml="false"/></td></tr>
 					</table>

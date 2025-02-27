@@ -64,7 +64,7 @@
 										<small><span><b>Type:</b> <s:property value="type" /></span>
 										<span><b>By:</b> <s:property value="user.fname" /> <s:property
 												value="user.lname" /></span>
-										<span><b>On:</b> <s:date name="created" format="dd/MM/yyyy"/> </span></small>
+										<span><b>On:</b> <s:date name="created" format="MM/dd/yyyy"/> </span></small>
 										</td>
 										<td><input type="checkbox" class="activeCheckBox" <s:if test="active">checked</s:if> /></td>
 										<td>

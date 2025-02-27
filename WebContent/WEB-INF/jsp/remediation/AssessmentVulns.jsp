@@ -59,7 +59,7 @@
 								<span class="severity"><s:property value="overallStr" /></span>
 								<BR/>
 								Opened: <span><s:date name="opened"  format="MM/dd/yyy"/></span>  
-								<s:if test="closed">Closed: <span><s:date name="closed" format="dd/MM/yyyy"/></s:if></span>
+								<s:if test="closed">Closed: <span><s:date name="closed" format="MM/dd/yyyy"/></s:if></span>
 								<br/>
 								<s:iterator value="status[id]" var="msg">
 									<s:property value="msg" escapeHtml="false"/>

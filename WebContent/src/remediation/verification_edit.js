@@ -74,7 +74,7 @@ $(function() {
 	$('#reservation').daterangepicker({
 		"locale": {
 
-			"format": "DD/MM/YYYY",
+			"format": "MM/DD/YYYY",
 			"separator": " to ",
 			"applyLabel": "Apply",
 			"cancelLabel": "Cancel",
@@ -111,8 +111,8 @@ $(function() {
 			end = new Date(range.split(" to ")[1]);
 			start.setDate(start.getDate() + delta.asDays());
 			end.setDate(end.getDate() + delta.asDays());
-			startStr = start.getDate() + "/" + (start.getMonth()+1) + "/" + start.getFullYear();
-			endStr = end.getDate() + "/" + (end.getMonth()+1) + "/" + end.getFullYear();
+			startStr = (start.getMonth() + 1) + "/" + start.getDate() + "/" + start.getFullYear();
+			endStr = (end.getMonth() + 1) + "/" + end.getDate() + "/" + end.getFullYear();
 			$("#reservation").val(startStr + " - " + endStr);
 
 		},
@@ -120,9 +120,9 @@ $(function() {
 			thedelta = event;
 			range = $("#reservation").val();
 			start = new Date(range.split("  to ")[0]);
-			startStr = start.getDate() + "/" + (start.getMonth()+1) + "/" + start.getFullYear();
+			startStr = (start.getMonth() + 1) + "/" + start.getDate() + "/" + start.getFullYear();
 
-			endStr = (event.end.date() - 1) + "/" + (event.end.month() + 1) + "/" + event.end.year();
+			endStr = (event.end.month() + 1) + "/" + (event.end.date() - 1) + "/" + event.end.year();
 			$("#reservation").val(startStr + " to " + endStr);
 		}
 

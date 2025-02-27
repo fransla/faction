@@ -65,8 +65,8 @@
 												value="verification.verificationItems[0].vulnerability.impactStr" /></td>
 										<td><s:property
 												value="verification.verificationItems[0].vulnerability.likelyhoodStr" /></td>
-										<td><s:date name="verification.start" format="dd/MM/yyyy" /></td>
-										<td><s:date name="verification.end" format="dd/MM/yyyy" /></td>
+										<td><s:date name="verification.start" format="MM/dd/yyyy" /></td>
+										<td><s:date name="verification.end" format="MM/dd/yyyy" /></td>
 										<td><bs:button color="info" size="md" colsize="12"
 												text="<span class='fa fa-file'></span> Full Report" id="open"></bs:button></td>
 									</tr>
@@ -174,7 +174,7 @@
 					<s:else>
 					<tr><td>Assessment Report</td>
 					</s:else>
-						<td><s:date name="gentime" format="dd-MM-yyyy hh:mm:ss"/></td>
+						<td><s:date name="gentime" format="MM-dd-yyyy hh:mm:ss"/></td>
 						<td>
 							<span class="vulnControl downloadReport" data-guid="<s:property value="filename"/>">
 								<i class="fa fa-download"></i>

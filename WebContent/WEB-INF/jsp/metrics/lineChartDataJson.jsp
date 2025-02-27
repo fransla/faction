@@ -24,7 +24,7 @@
 },
 "assessments" : 
 [	<s:iterator value="asmts" status="astat"><s:if test="#astat.index != 0">,</s:if>
-			{"date" : "<s:date name="completed" format="dd/MM/yyyy" />",
+			{"date" : "<s:date name="completed" format="MM/dd/yyyy" />",
 			"vulns" : [
 			<s:iterator value="vulns" status="stat" >
 		           {

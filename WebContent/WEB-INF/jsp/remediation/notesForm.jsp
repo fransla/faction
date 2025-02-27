@@ -65,7 +65,7 @@
 						</s:else>
 							<td><s:property value="appName"/> - <s:property value="appType"/> <s:if test="retest == true">Retest</s:if> Report.docx</td>
 							<td><s:property value="appType"/> <s:if test="retest == true">Retest</s:if></td>
-							<td><s:date name="gentime" format="dd-MM-yyyy hh:mm:ss"/></td>
+							<td><s:date name="gentime" format="MM-dd-yyyy hh:mm:ss"/></td>
 							<td>
 								<span class="vulnControl downloadReport" data-guid="<s:property value="filename"/>">
 									<i class="fa fa-download"></i>

@@ -9,8 +9,8 @@
 	"name" : "<s:property value="#asmt.name"/>",
 	"userid" : "<s:property value="id"/>",
 	"username" : "<s:property value="fname"/> <s:property value="lname"/>",
-	"start" : "<s:date name="#asmt.start" format="dd/MM/yyyy"/>",
-	"end" : "<s:date name="#asmt.end" format="dd/MM/yyyy"/>"
+	"start" : "<s:date name="#asmt.start" format="MM/dd/yyyy"/>",
+	"end" : "<s:date name="#asmt.end" format="MM/dd/yyyy"/>"
 	}
 </s:iterator>
 </s:iterator>
@@ -25,8 +25,8 @@
 	"vuln" : "<s:property value="verificationItems[0].vulnerability.name"/>",
 	"userid" : "<s:property value="assessor.id"/>",
 	"username" : "<s:property value="assessor.fname"/> <s:property value="assessor.lname"/>",
-	"start" : "<s:date name="start" format="dd/MM/yyyy"/>",
-	"end" : "<s:date name="end" format="dd/MM/yyyy"/>",
+	"start" : "<s:date name="start" format="MM/dd/yyyy"/>",
+	"end" : "<s:date name="end" format="MM/dd/yyyy"/>",
 	"status": "<s:property value="workflowStatus"/>"
 	}
 </s:iterator>
@@ -40,8 +40,8 @@
 	"title" : "<s:property value="title"/>",
 	"userid" : "<s:property value="user.id"/>",
 	"username" : "<s:property value="user.fname"/> <s:property value="user.lname"/>",
-	"start" : "<s:date name="start" format="dd/MM/yyyy"/>",
-	"end" : "<s:date name="end" format="dd/MM/yyyy"/>"
+	"start" : "<s:date name="start" format="MM/dd/yyyy"/>",
+	"end" : "<s:date name="end" format="MM/dd/yyyy"/>"
 	}
 </s:iterator>
 
