@@ -61,8 +61,8 @@ tr:hover {
 						classname="primary">
 						<s:iterator value="items">
 							<tr data-vulnid="${vulnid}">
-								<td><s:date name="due" format="MM/dd/yyyy" /></td>
-								<td><s:date name="opened" format="MM/dd/yyyy" /></td>
+								<td><s:date name="due" format="dd/MM/yyyy" /></td>
+								<td><s:date name="opened" format="dd/MM/yyyy" /></td>
 								<td><s:property value="appid" /></td>
 								<td><s:property value="appname" /></td>
 								<td><s:property value="desc" /></td>

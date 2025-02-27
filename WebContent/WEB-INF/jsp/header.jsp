@@ -101,7 +101,7 @@
                       <a href="#">User:<br><s:property value="sessionUser.fname"/> <s:property value="sessionUser.lname"/></a>
                     </div>
                     <div class="col-xs-6 text-center">
-                      <a href="#">Last Login: <s:date name="sessionUser.lastLogin" format="MM/dd/yyyy hh:mm:ss"/></a>
+                      <a href="#">Last Login: <s:date name="sessionUser.lastLogin" format="dd/MM/yyyy hh:mm:ss"/></a>
                     </div>
                   </li>
                   <!-- Menu Footer-->

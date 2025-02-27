@@ -8,13 +8,13 @@
 "<s:if test="isVer">Out for Verification</s:if>",
 "<s:property value="vuln.overallStr" escapeJavaScript="true"/>" ,  
 <s:if test="vuln.closed== null">
-"<s:date name="vuln.opened"  format="MM/dd/yyyy"/>",
+"<s:date name="vuln.opened"  format="dd/MM/yyyy"/>",
 </s:if>
 <s:else>
-"<s:date name="vuln.opened"  format="MM/dd/yyyy"/>", 
+"<s:date name="vuln.opened"  format="dd/MM/yyyy"/>", 
 </s:else>
-"<s:date name="vuln.devClosed" format="MM/dd/yyyy"/>", 
-"<s:date name="vuln.closed" format="MM/dd/yyyy"/>", 
+"<s:date name="vuln.devClosed" format="dd/MM/yyyy"/>", 
+"<s:date name="vuln.closed" format="dd/MM/yyyy"/>", 
 {},
 { 
 	"aid" :"<s:property value="assessment.id"/>", 
@@ -36,7 +36,7 @@
 	{	
 		"name": "<s:property value="assessment.name" escapeJavaScript="true"/> - <s:property value="assessment.type.type" escapeJavaScript="true"/> <s:if test="retest == true">Retest </s:if>Report.docx", 
 		"type": "<s:property value="assessment.type.type" escapeJavaScript="true"/> <s:if test="retest == true">Retest</s:if>", 
-		"updated": "<s:date name="gentime" format="MM-dd-yyyy hh:mm:ss"/>", 
+		"updated": "<s:date name="gentime" format="dd-MM-yyyy hh:mm:ss"/>", 
 		"guid" : "<s:property value="filename"/>",
 		"isRetest": <s:property value="retest"/>
 	}</s:iterator>]

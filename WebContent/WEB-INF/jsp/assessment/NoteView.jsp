@@ -73,12 +73,12 @@ background-color: white;
 							<tr><td><b>Created: </b></td><td id="createdBy">
 								<s:property value="assessment.notebook[0].createdBy.fname"/>
 								<s:property value="assessment.notebook[0].createdBy.lname"/></td><td id="createdAt">
-								<s:date name="assessment.notebook[0].created" format="MM/dd/yyyy hh:mm:ss"/>
+								<s:date name="assessment.notebook[0].created" format="dd/MM/yyyy hh:mm:ss"/>
 								</td></tr>
 							<tr><td><b>Updated: </b></td><td id="updatedBy">
 								<s:property value="assessment.notebook[0].updatedBy.fname"/>
 								<s:property value="assessment.notebook[0].updatedBy.lname"/></td><td id="updatedAt">
-								<s:date name="assessment.notebook[0].updated" format="MM/dd/yyyy hh:mm:ss"/>
+								<s:date name="assessment.notebook[0].updated" format="dd/MM/yyyy hh:mm:ss"/>
 							</td></tr>
 							</table>
 						</div>

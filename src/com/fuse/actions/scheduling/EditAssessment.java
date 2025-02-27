@@ -503,13 +503,13 @@ public class EditAssessment extends FSActionSupport {
 
 	public String getStartStr() {
 		SimpleDateFormat formatter;
-		formatter = new SimpleDateFormat("MM/dd/yyyy");
+		formatter = new SimpleDateFormat("dd/MM/yyyy");
 		return formatter.format(currentAssessment.getStart());
 	}
 
 	public String getEndStr() {
 		SimpleDateFormat formatter;
-		formatter = new SimpleDateFormat("MM/dd/yyyy");
+		formatter = new SimpleDateFormat("dd/MM/yyyy");
 		return formatter.format(currentAssessment.getEnd());
 
 	}

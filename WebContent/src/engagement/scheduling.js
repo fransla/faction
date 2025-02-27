@@ -181,7 +181,7 @@ $(function() {
 		$('#reservation').daterangepicker({
 			"locale": {
 
-				"format": "MM/DD/YYYY",
+				"format": "DD/MM/YYYY",
 				"separator": " to ",
 				"applyLabel": "Apply",
 				"cancelLabel": "Cancel",
@@ -193,8 +193,8 @@ $(function() {
 			},
 			"weekStart": 5,
 			"showWeekNumbers": true,
-			"startDate": moment(`${sDate}`,'MM-DD-YYYY'),
-			"endDate": moment(`${eDate}`,'MM-DD-YYYY')
+			"startDate": moment(`${sDate}`,'DD-MM-YYYY'),
+			"endDate": moment(`${eDate}`,'DD-MM-YYYY')
 
 		});
 		//$("#reservation").val(`${sDate} to ${eDate}`);

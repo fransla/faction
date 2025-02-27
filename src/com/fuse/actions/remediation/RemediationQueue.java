@@ -107,7 +107,7 @@ public class RemediationQueue extends FSActionSupport{
 			Vulnerability tmpVuln = verification.getVerificationItems().get(0).getVulnerability();
 			Date DueDate = FSUtils.getDue(em, tmpVuln.getOpened(), tmpVuln.getOverall().intValue());
 			Date WarnDate = FSUtils.getWarning(em, tmpVuln.getOpened(), tmpVuln.getOverall().intValue());
-			String pattern = "MM/dd/yyyy";
+			String pattern = "dd/MM/yyyy";
 			SimpleDateFormat format = new SimpleDateFormat(pattern);
 			if(DueDate != null ) {
 				String dueDateString = format.format(DueDate);

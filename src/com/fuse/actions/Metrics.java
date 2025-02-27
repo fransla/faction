@@ -80,7 +80,7 @@ public class Metrics extends FSActionSupport {
 			String query = "{ 'campaign_id' : " + campId + " }";
 			asmts = AssessmentQueries.getAssessmentsByCampaign(em, user, campId, AssessmentQueries.OnlyCompleted);
 
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 			int c = 9;
 			for (RiskLevel level : levels) {
@@ -94,7 +94,7 @@ public class Metrics extends FSActionSupport {
 		} else if (action.equals("getapp")) {
 			asmts = AssessmentQueries.getAssessmentsByAppDesc(em, user, appId, appName,
 					AssessmentQueries.OnlyCompleted);
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 			int c = 9;
 			for (RiskLevel level : levels) {
@@ -109,7 +109,7 @@ public class Metrics extends FSActionSupport {
 
 		} else if (action.equals("getuser")) {
 			asmts = AssessmentQueries.getAssessmentsByUserId(em, user, this.id, AssessmentQueries.OnlyCompleted);
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 			int c = 9;
 			for (RiskLevel level : levels) {
@@ -422,7 +422,7 @@ public class Metrics extends FSActionSupport {
 			if (a.getCompleted() == null || a.getCompleted().getTime() == (new Date(0)).getTime()) {
 				continue;
 			}
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			Date chartDate = a.getCompleted() == null ? a.getEnd() : a.getCompleted();
 			if (isCamp) {
 				dates += ", [\"" + sdf.format(chartDate) + "\",\"" + a.getAppId() + "\",\" " + a.getName() + "\"]";

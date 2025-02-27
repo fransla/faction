@@ -107,8 +107,8 @@ label{
 	let workflow="-1";
 	let initialPreviewDownloadUrl = 'GetEngFile2?name={key}';
 	let customFields = []
-	let sDate= moment(new Date).format("MM-DD-YYYY")
-	let eDate= moment(new Date).format("MM-DD-YYYY")
+	let sDate= moment(new Date).format("DD-MM-YYYY")
+	let eDate= moment(new Date).format("DD-MM-YYYY")
 	let statName = "${defaultStatus}"
 	let engName = ''
 	let remName = ''

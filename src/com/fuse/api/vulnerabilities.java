@@ -877,7 +877,7 @@ public class vulnerabilities {
 		try{
 		
 			User u = this.getUser(em, apiKey);
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			if(u!=null && (u.getPermissions().isAssessor() || u.getPermissions().isManager() || u.getPermissions().isRemediation())){
 				
 				List<Vulnerability> vulns = null;

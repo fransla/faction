@@ -4,7 +4,7 @@
 <s:if test="isSummaryLockedbyAnotherUser()">
 "summary": { "isLock" : <s:property value="assessment.isSummaryLock()" />,
   "lockBy" : "<s:property value="assessment.getSummaryLockBy().fname"/> <s:property value="assessment.getSummaryLockBy().lname"/>",
-  "lockAt" : "<s:date name="assessment.getSummaryLockAt()" format="MM/dd/yyyy HH:mm:ss"/>",
+  "lockAt" : "<s:date name="assessment.getSummaryLockAt()" format="dd/MM/yyyy HH:mm:ss"/>",
   "updatedText" : "<s:property value="assessment.getSummary()"/>"
 }
 </s:if>
@@ -14,7 +14,7 @@
 <s:if test="isRiskLockedbyAnotherUser()">
 "risk" : { "isLock" : <s:property value="assessment.isRiskLock()" />,
   "lockBy" : "<s:property value="assessment.getRiskLockBy().fname" escapeJavaScript="true"/> <s:property value="assessment.getRiskLockBy().lname" escapeJavaScript="true"/>",
-  "lockAt" : "<s:date name="assessment.getRiskLockAt()" format="MM/dd/yyyy HH:mm:ss"/>",
+  "lockAt" : "<s:date name="assessment.getRiskLockAt()" format="dd/MM/yyyy HH:mm:ss"/>",
   "updatedText" : "<s:property value="assessment.getRiskAnalysis()"/>"
 }
 </s:if>
@@ -24,7 +24,7 @@
 	{ "id": "<s:property value="id"/>", 
 	  "islock" : <s:property value="desc_lock" />,
 	  "lockby" : "<s:property value="desc_locked_by.fname" escapeJavaScript="true"/> <s:property value="desc_locked_by.lname" escapeJavaScript="true"/>",
-	  "lockat" : "<s:date name="desc_lock_time" format="mm/dd/yyyy hh:mm:ss"/>"
+	  "lockat" : "<s:date name="desc_lock_time" format="dd/mm/yyyy hh:mm:ss"/>"
 	}<s:if test="!#stats.last">,</s:if>
 	</s:iterator>
 ],
@@ -43,7 +43,7 @@
 	{ "id": "<s:property value="id"/>", 
 	  "islock" : <s:property value="noteLocked" />,
 	  "lockby" : "<s:property value="noteLockedBy.fname" escapeJavaScript="true"/> <s:property value="noteLockedBy.lname" escapeJavaScript="true"/>",
-	  "lockat" : "<s:date name="noteLockedAt" format="mm/dd/yyyy hh:mm:ss"/>"
+	  "lockat" : "<s:date name="noteLockedAt" format="dd/mm/yyyy hh:mm:ss"/>"
 	}<s:if test="!#stats.last">,</s:if>
 	</s:iterator>
 ]

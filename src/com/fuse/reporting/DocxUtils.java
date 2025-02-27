@@ -251,7 +251,7 @@ public class DocxUtils {
 			// now we have a row.. we need to iterate through all issues
 			// and replace variables
 			SimpleDateFormat formatter;
-			formatter = new SimpleDateFormat("MM/dd/yyyy");
+			formatter = new SimpleDateFormat("dd/MM/yyyy");
 			int count = 1;
 			for (Vulnerability v : filteredVulns) {
 				// Change Colors if need be
@@ -544,7 +544,7 @@ public class DocxUtils {
 
 		SimpleDateFormat formatter;
 
-		formatter = new SimpleDateFormat("MM/dd/yyyy");
+		formatter = new SimpleDateFormat("dd/MM/yyyy");
 
 		String assessors_nl = "";
 		String assessors_comma = "";
@@ -788,7 +788,7 @@ public class DocxUtils {
 	private String replacement(String content) {
 		SimpleDateFormat formatter;
 
-		formatter = new SimpleDateFormat("MM/dd/yyyy");
+		formatter = new SimpleDateFormat("dd/MM/yyyy");
 
 		String assessors_nl = "";
 		String assessors_comma = "";
@@ -908,7 +908,7 @@ public class DocxUtils {
 			mlp.getMainDocumentPart().getContent().remove(i);
 		}
 		SimpleDateFormat formatter;
-		formatter = new SimpleDateFormat("MM/dd/yyyy");
+		formatter = new SimpleDateFormat("dd/MM/yyyy");
 		
 		List<Vulnerability> filteredVulns = this.getFilteredVulns(section);
 		

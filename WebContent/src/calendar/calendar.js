@@ -25,7 +25,7 @@ global._token = $("#_token")[0].value;
 			$('#reservation').daterangepicker({
 				"locale": {
 
-					"format": "MM/DD/YYYY",
+					"format": "DD/MM/YYYY",
 					"separator": " to ",
 					"applylabel": "apply",
 					"cancellabel": "cancel",
@@ -45,7 +45,7 @@ global._token = $("#_token")[0].value;
 			$('#ooo').daterangepicker({
 				"locale": {
 
-					"format": "MM/DD/YYYY",
+					"format": "DD/MM/YYYY",
 					"separator": " to ",
 					"applylabel": "apply",
 					"cancellabel": "cancel",

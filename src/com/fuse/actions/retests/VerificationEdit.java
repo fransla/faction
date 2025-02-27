@@ -63,7 +63,7 @@ public class VerificationEdit extends FSActionSupport {
 		this.appName = v.getAssessment().getName();
 		this.appType = v.getAssessment().getType().getType();
 		this.start = v.getStart() == null ? new Date(0) : v.getStart();
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		this.startStr = sdf.format(this.start);
 		this.end = v.getEnd() == null ? new Date(0) : v.getEnd();
 		this.endStr = sdf.format(this.end);
@@ -167,7 +167,7 @@ public class VerificationEdit extends FSActionSupport {
 		Vulnerability tmpVuln = verification.getVerificationItems().get(0).getVulnerability();
 		Date DueDate = this.getDue(em, tmpVuln.getOpened(), tmpVuln.getOverall().intValue());
 		Date WarnDate = this.getWarning(em, tmpVuln.getOpened(), tmpVuln.getOverall().intValue());
-		String pattern = "MM/dd/yyyy";
+		String pattern = "dd/MM/yyyy";
 		SimpleDateFormat format = new SimpleDateFormat(pattern);
 		if(DueDate != null) {
 		String dueDateString = format.format(DueDate);

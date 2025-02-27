@@ -117,7 +117,7 @@ public class RemediationSchedule extends FSActionSupport{
 				status.get(v.getId()).add(FSUtils.addBadge("Closed Prod", "green", "fa-check"));
 				controls.put("closed|"+v.getId(), "true");
 			}
-			String pattern = "MM/dd/yyyy";
+			String pattern = "dd/MM/yyyy";
 			SimpleDateFormat format = new SimpleDateFormat(pattern);
 			Verification verification = verifications
 					.stream()
