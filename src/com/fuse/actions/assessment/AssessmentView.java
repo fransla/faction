@@ -240,6 +240,10 @@ public class AssessmentView extends FSActionSupport {
 		User user = this.getSessionUser();
 		Long assessmentId = (Long)this.getSession("asmtid");
 		assessment = AssessmentQueries.getAssessmentByUserId(em, user.getId(), assessmentId, AssessmentQueries.All);
+		if(assessment == null) {
+			List<Vulnerability> vulns = new ArrayList();
+			return "assessmentStats";
+		}
 		List<Vulnerability> vulns = assessment.getVulns();
 		List<RiskLevel> levels = em
 				.createQuery("from RiskLevel where risk IS NOT Null and risk != '' order by riskId")
@@ -434,6 +438,7 @@ public class AssessmentView extends FSActionSupport {
 				return result;
 
 		}
+		AssessmentQueries.removeImages(assessment);
 		assessment.setCompleted(new Date());
 		assessment.setFinalized();
 		List<Vulnerability> vulns = assessment.getVulns();

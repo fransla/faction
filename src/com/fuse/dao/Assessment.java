@@ -21,6 +21,9 @@ import javax.persistence.TableGenerator;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import com.fuse.utils.FSUtils;
 
 @Entity
@@ -55,8 +58,10 @@ public class Assessment {
 	@ManyToOne
 	private AssessmentType type;
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@NotFound(action = NotFoundAction.IGNORE)
 	private FinalReport finalReport;
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@NotFound(action = NotFoundAction.IGNORE)
 	private FinalReport retestReport;
 	@ManyToOne
 	private Campaign campaign;
@@ -65,6 +70,9 @@ public class Assessment {
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Vulnerability> vulns = new ArrayList<>();
+	
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval=true)
+	private List<Image> images = new ArrayList<>();
 
 	private String pr_sum_notes;
 	private String pr_risk_notes;
@@ -267,6 +275,13 @@ public class Assessment {
 	@Transient
 	public String getPr_sum_notes() {
 		return pr_sum_notes;
+	}
+	public List<Image> getImages(){
+		return this.images;
+	}
+	
+	public void setImages(List<Image> images) {
+		this.images = images;
 	}
 
 	@Transient
