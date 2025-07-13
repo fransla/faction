@@ -125,14 +125,13 @@ public class FSUtils {
 		PolicyFactory policyBuilder = new HtmlPolicyBuilder().allowAttributes("src").onElements("img")
 				.allowUrlProtocols("data", "http", "https").allowAttributes("href").onElements("a")
 				.allowAttributes("src", "width", "height", "controls").onElements("video")
-				.allowAttributes("style", "class")
-				.onElements("a", "label", "h1", "h2", "h3", "h4", "h5", "h6", "p", "i", "b", "u", "strong", "em",
+				.allowAttributes("style", "class", "colspan").onElements("a", "label", "h1", "h2", "h3", "h4", "h5", "h6", "p", "i", "b", "u", "strong", "em",
 						"small", "big", "pre", "code", "cite", "samp", "sub", "sup", "strike", "center", "blockquote",
 						"hr", "br", "col", "font", "div", "img", "ul", "ol", "li", "dd", "dt", "dl", "tbody", "thead",
 						"tfoot", "table", "td", "th", "tr", "colgroup", "fieldset", "legend", "span")
 				.allowAttributes("data-changedata", "data-cid", "data-last-change-time", "data-time", "data-userid",
-						"data-username", "title")
-				.onElements("span").allowAttributes("border", "cellpadding", "cellspacing", "style", "class").onElements("table")
+						"data-username", "title").onElements("span")
+				.allowAttributes("border", "cellpadding", "cellspacing", "style", "class", "colspan").onElements("table")
 				.allowStandardUrlProtocols()
 				.allowElements("a", "label", "h1", "h2", "h3", "h4", "h5", "h6", "p", "i", "b", "u", "strong", "em",
 						"small", "big", "pre", "code", "cite", "samp", "sub", "sup", "strike", "center", "blockquote",
@@ -719,7 +718,9 @@ public class FSUtils {
 			Node document = parser.parse(text);
 			HtmlRenderer renderer = HtmlRenderer.builder().extensions(extensions).build();
 			String converted = renderer.render(document);
+			converted = converted.replaceAll("\\+\\+([^+]+)\\+\\+", "<u>$1</u>"); // Allow for custom underline markdown
 			converted += "<br/>";
+			converted = converted.replaceAll("<br>", "\r\n").replaceAll("<br/>","\r\n");
 			return converted;
 		} catch (Exception ex) {
 			ex.printStackTrace();

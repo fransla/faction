@@ -1,5 +1,6 @@
 package com.fuse.actions.scheduling;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -262,7 +263,13 @@ public class Engagement  extends FSActionSupport{
 					Long cfid = Long.parseLong(""+json.get("id"));
 					CustomType ct = em.find(CustomType.class, cfid);
 					cf.setType(ct);
-					cf.setValue(""+json.get("text"));
+					if(cf.getType().getFieldType() < 3) {
+						cf.setValue(""+json.get("text"));
+					}else {
+						byte [] decodedBytes = Base64.getDecoder().decode(""+json.get("text"));
+						String decodedString = new String(decodedBytes);
+						cf.setValue(decodedString);
+					}
 					am.getCustomFields().add(cf);
 				}
 				
@@ -699,7 +706,7 @@ public class Engagement  extends FSActionSupport{
 		Pattern p = Pattern.compile(emailRegex);
 		String [] emails = this.distro.split(";");
 		for(String mail : emails) {
-			Matcher m = p.matcher(mail.trim());
+			Matcher m = p.matcher(mail.toLowerCase().trim());
 			if(m.matches())
 				continue;
 			else

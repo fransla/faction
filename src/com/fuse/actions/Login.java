@@ -74,6 +74,13 @@ public class Login extends FSActionSupport {
 		ProfileManager pm = new ProfileManager(context, sessionStore);
 		return pm.getAll(true);
 	}
+	private void logoutProfiles(){
+		
+		WebContext context = new JEEContext(request,response);
+		SessionStore sessionStore = new JEESessionStore();
+		ProfileManager pm = new ProfileManager(context, sessionStore);
+		pm.logout();
+	}
 	
 
 	@Action(value = "index", results = { @Result(name = "createAccount", location = "/WEB-INF/jsp/newInstance.jsp"),
@@ -92,7 +99,7 @@ public class Login extends FSActionSupport {
 			return "createAccount";
 		} else if (AccessControl.isAuthenticated(this.JSESSION)) {
 			return redirectIt(this.getSessionUser());
-		}else if ( (username != null && !username.equals("")) || (getProfiles() != null && getProfiles().size()>0) ) {
+		}else if ( action == null && ((username != null && !username.equals("")) || (getProfiles() != null && getProfiles().size()>0) )) {
 			AuthResult result = AccessControl.Authenticate(username, password, request, em, getProfiles());
 			if (result == AuthResult.SUCCESS) {
 				HibHelper.getInstance().preJoin();
@@ -153,6 +160,16 @@ public class Login extends FSActionSupport {
 			}else if (result == AuthResult.NOT_VALID_OAUTH_ACCOUNT) {
 				failed = true;
 				message = "Not a valid OAuth User. Try another account or contact the administrator.";
+				logoutProfiles();
+				return "failedAuth";
+			}else if (result == AuthResult.NOT_VALID_EMAIL) {
+				logoutProfiles();
+				failed = true;
+				message = "Claims did not include email address.";
+				return "failedAuth";
+			}else if (result == AuthResult.DUPLICATE_USERS) {
+				failed = true;
+				message = "More than one user exists with this email address.";
 				return "failedAuth";
 			} else {
 				HibHelper.getInstance().preJoin();
@@ -162,6 +179,7 @@ public class Login extends FSActionSupport {
 
 				failed = true;
 				message = "Username and/or Password was incorrect.";
+				logoutProfiles();
 				return "failedAuth";
 			}
 

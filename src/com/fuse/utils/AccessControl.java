@@ -27,7 +27,7 @@ import com.fuse.dao.User;
 public class AccessControl {
 
 	public static enum AuthResult {
-		FAILED_AUTH, LOCKEDOUT, NOACCOUNT, SUCCESS, INACTIVITY, REDIRECT_OAUTH, NOT_VALID_OAUTH_ACCOUNT, REDIRECT_SAML2
+		FAILED_AUTH, LOCKEDOUT, NOACCOUNT, SUCCESS, INACTIVITY, REDIRECT_OAUTH, NOT_VALID_OAUTH_ACCOUNT, REDIRECT_SAML2, NOT_VALID_EMAIL, DUPLICATE_USERS, LOGOUT_PROFILE
 	}
 
 	public static boolean isNewInstance(EntityManager em) {
@@ -95,8 +95,13 @@ public class AccessControl {
 					String query = String.format("{'email': {$regex: '^%s$', $options: 'i'}}",FSUtils.sanitizeMongo(email));
 					List<User> users = em.createNativeQuery(query, User.class).getResultList();
 					User tmp = null;
-					if(users.size() == 1) {
+					if(users.size() == 0) {
+						return AuthResult.NOT_VALID_OAUTH_ACCOUNT;
+					}
+					else if(users.size() == 1) {
 						tmp = users.get(0);
+					}else {
+						return AuthResult.DUPLICATE_USERS;
 					}
 					
 					if(tmp != null) {
@@ -110,6 +115,8 @@ public class AccessControl {
 						jsession.setAttribute("user", tmp);
 						return AuthResult.SUCCESS;
 					}
+				}else {
+					return AuthResult.NOT_VALID_EMAIL;
 				}
 			}
 			//lets invalidate the session that has existing profiles since 
